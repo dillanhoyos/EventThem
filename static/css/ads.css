@@ -1,0 +1,27 @@
+.ads {
+    position: relative;
+    max-width: 100%; /* Adjust the maximum width as needed */
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .carousel-container {
+    display: flex;
+    animation: slide 10s infinite; /* Adjust the duration as needed */
+  }
+
+  img {
+    width: 100%;
+  }
+
+  @keyframes slide {
+    0%, 25% {
+      transform: translateX(0);
+    }
+    25%, 50% {
+      transform: translateX(-25%);
+    }
+    50% {
+      transform: translateX(-25%); /* Adjusted to cover three images */
+    }
+  }
