@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{url_for('static', filename='js/subscribe.js')}}"></script>
+    <title>Subscription Section</title>
+</head>
+<body>
+    <div class="subscribe-section">
+        <h2>Subscribe</h2>
+        <form id="subscriptionForm">
+            <label for="participantName">Name:</label>
+            <input type="text" id="participantName" required>
+    
+            <label for="participantImage">Upload Image:</label>
+            <input type="file" id="participantImage" accept="image/*" required>
+    
+            <button type="button" onclick="subscribe()">Subscribe</button>
+        </form>
+    </div>
+    <div class="subscribed-list">
+        <h2>Subscribed Participants</h2>
+        <ul id="participantList"></ul>
+    </div>
+
+</body>
+</html>

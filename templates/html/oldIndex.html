@@ -20,21 +20,24 @@
   
       <img src="static/images/Screenshot%202024-02-15%20132756.png" alt="Ad 1">
       <img src="static/images/Screenshot 2024-02-09 150436.png" alt="Ad 2">
-      <img src="static/images/Screenshot 2024-02-01 165453.png" alt="Ad 3">
+      <img src="static/images/Screenshot 2024-02-01 165453.png" alt="Ad 3">|
+      <script src="{{url_for('static', filename='js/mathmaker.js')}}"></script>
     </div>
 </div>
 
 <div class = "tournament">
         <!-- Round 1 (16 teams) -->
     <div class = "round-1">
-        <div class="match" onclick="openModal(1)">
+        <div class="match" data-match-id="1" data-image1="path/to/image1.jpg" data-image2="path/to/image2.jpg">
             <div class="team">
-                <span class="team-name">New Team 1</span>
+                <span class="team-name-1">New Team 1</span>
             </div>
             <div class="team">
-                <span class="team-name">New Team 2</span>
+                <span class="team-name-2">New Team 2</span>
             </div>
+            <button class="edit-btn" onclick="editMatch('1')">Edit</button>
         </div>
+
         
         <div class ="match">
             <div class = "team"> New Team</div>
@@ -201,54 +204,5 @@
 
 </body>
 
-<script>
-    // Open the modal with the specific match details
-    function openModal(matchId) {
-        // Retrieve the match details based on matchId
-        // For simplicity, let's assume you have an array of match details
-        const matchDetails = getMatchDetails(matchId);
 
-        // Populate the form fields with match details
-        document.getElementById('teamName').value = matchDetails.teamName;
-        document.getElementById('teamImage').value = matchDetails.teamImage;
-        document.getElementById('teamScore').value = matchDetails.teamScore;
-
-        // Show the modal
-        document.getElementById('editModal').style.display = 'block';
-    }
-
-    // Close the modal
-    function closeModal() {
-        document.getElementById('editModal').style.display = 'none';
-    }
-
-    // Handle form submission
-    document.getElementById('editForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        // Retrieve the form data
-        const teamName = document.getElementById('teamName').value;
-        const teamImage = document.getElementById('teamImage').value;
-        const teamScore = document.getElementById('teamScore').value;
-
-        // Handle the form data (update match details or perform other actions)
-        // For simplicity, you can log the data to the console
-        console.log('Team Name:', teamName);
-        console.log('Team Image:', teamImage);
-        console.log('Team Score:', teamScore);
-
-        // Close the modal after handling the form data
-        closeModal();
-    });
-
-    // Simulated function to get match details based on matchId
-    function getMatchDetails(matchId) {
-        // For simplicity, return dummy data
-        return {
-            teamName: `Team ${matchId * 2 - 1}`,
-            teamImage: 'https://example.com/team-image.jpg',
-            teamScore: 0
-        };
-    }
-</script>
 </html>

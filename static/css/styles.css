@@ -45,12 +45,12 @@ body {
     background-color: #ccc;
     transform: translateY(-50%);
 }
-.match-right {
+.match-1-right {
     position: relative;
     padding-bottom: 15px;
 }
 
-.match-right::before {
+.match-1-right::before {
     content: '';
     position: absolute;
     top: 38%;
@@ -62,6 +62,7 @@ body {
 }
 .match-2 {
     position: relative;
+    padding-bottom: 0px;
 }
 
 /* Draw connecting lines between matches in the same round */
@@ -77,6 +78,7 @@ body {
 }
 .match-3 {
     position: relative;
+    padding-bottom: 0px;
 }
 
 /* Draw connecting lines between matches in the same round */
@@ -92,6 +94,7 @@ body {
 }
 .match-4 {
     position: relative;
+    padding-bottom: 0px;
 }
 
 /* Draw connecting lines between matches in the same round */
@@ -104,6 +107,10 @@ body {
     height: 1px;
     background-color: #ccc;
     transform: translateY(-50%);
+}
+.match-5::after {
+    display: none;
+    
 }
 .match-2-right {
     position: relative;
@@ -137,6 +144,7 @@ body {
 }
 .match-4-right {
     position: relative;
+    padding-bottom: 0px;
 }
 
 /* Draw connecting lines between matches in the same round */
@@ -239,4 +247,33 @@ body {
 .round-5 .team {
     position: relative;
     margin-bottom: 65px /* Adjust as needed */
+}
+
+
+.team {
+    position: relative;
+    justify-content: space-around;
+}
+
+/* score boxes */
+
+.score-input {
+    position: relative;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    text-align: right;
+    border: none;
+    background: none;
+    font-size: 14px; /* Set your preferred font size */
+    font-weight: bold; /* Set your preferred font weight */
+    color: #333; /* Set your preferred text color */
+    outline: none;
+}
+
+/* Adjustments for the right-side matches */
+.match-right .team .score-box {
+    right: 0;
+    left: initial;
+    border-left: 1px solid #ccc; /* Add a border for separation on the right side */
 }
