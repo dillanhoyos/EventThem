@@ -1,8 +1,10 @@
 .ads {
+    display: block;
     position: relative;
     max-width: 100%; /* Adjust the maximum width as needed */
     margin: auto;
     overflow: hidden;
+
   }
 
   .carousel-container {

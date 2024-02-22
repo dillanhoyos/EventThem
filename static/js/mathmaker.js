@@ -1,338 +1,152 @@
-// Updated Tournament data model
-const tournamentData = [
-    {
-        round: 1,
-        matches: [
-       
-            {
-                Team1: "Team A",
-                score1: 0,
-                Team2: "Team B",
-                score2: 0,
-                image1Path: "path/to/image1.jpg",
-                image2Path: "path/to/image2.jpg"
-            },
-            {
-                Team1: "Team A",
-                score1: 0,
-                Team2: "Team B",
-                score2: 0,
-                image1Path: "path/to/image1.jpg",
-                image2Path: "path/to/image2.jpg"
-            },
-            {
-                Team1: "Team A",
-                score1: 0,
-                Team2: "Team B",
-                score2: 0,
-                image1Path: "path/to/image1.jpg",
-                image2Path: "path/to/image2.jpg"
-            },
-            {
-                Team1: "Team A",
-                score1: 0,
-                Team2: "Team B",
-                score2: 0,
-                image1Path: "path/to/image1.jpg",
-                image2Path: "path/to/image2.jpg"
-            },
-            {
-                Team1: "Team A",
-                score1: 0,
-                Team2: "Team B",
-                score2: 0,
-                image1Path: "path/to/image1.jpg",
-                image2Path: "path/to/image2.jpg"
-            },
-            {
-                Team1: "Team A",
-                score1: 0,
-                Team2: "Team B",
-                score2: 0,
-                image1Path: "path/to/image1.jpg",
-                image2Path: "path/to/image2.jpg"
-            },
-            {
-                Team1: "Team A",
-                score1: 0,
-                Team2: "Team B",
-                score2: 0,
-                image1Path: "path/to/image1.jpg",
-                image2Path: "path/to/image2.jpg"
-            },
-            {
-                Team1: "Team A",
-                score1: 0,
-                Team2: "Team B",
-                score2: 0,
-                image1Path: "path/to/image1.jpg",
-                image2Path: "path/to/image2.jpg"
-            },
-           
-            // Add more matches for round 1 as needed
-        ]
-    },
-    {
-        round: 2,
-        matches: [
-            {
-                Team1: "Winner of Match A/B",
-                Team2: "Winner of Match C/D",
-                image1Path: "path/to/image5.jpg",
-                image2Path: "path/to/image6.jpg"
-            },
-            {
-                Team1: "Winner of Match A/B",
-                Team2: "Winner of Match C/D",
-                image1Path: "path/to/image5.jpg",
-                image2Path: "path/to/image6.jpg"
-            },
-            {
-                Team1: "Winner of Match A/B",
-                Team2: "Winner of Match C/D",
-                image1Path: "path/to/image5.jpg",
-                image2Path: "path/to/image6.jpg"
-            },
-            {
-                Team1: "Winner of Match A/B",
-                Team2: "Winner of Match C/D",
-                image1Path: "path/to/image5.jpg",
-                image2Path: "path/to/image6.jpg"
-            },
-         
-            // Add more matches for round 2 as needed
-        ]
-    },
-    {
-        round: 3,
-        matches: [
-            {
-                Team1: "Winner of Match A/B",
-                Team2: "Winner of Match C/D",
-                image1Path: "path/to/image5.jpg",
-                image2Path: "path/to/image6.jpg"
-            },
-            {
-                Team1: "Winner of Match A/B",
-                Team2: "Winner of Match C/D",
-                image1Path: "path/to/image5.jpg",
-                image2Path: "path/to/image6.jpg"
-            },
-          
-            // Add more matches for round 2 as needed
-        ]
-    },
-    {
-        round: 4,
-        matches: [
-            {
-                Team1: "Winner of Match A/B",
-                Team2: "Winner of Match C/D",
-                image1Path: "path/to/image5.jpg",
-                image2Path: "path/to/image6.jpg"
-            },
-          
-            // Add more matches for round 2 as needed
-        ]
-    },
-    {
-        round: 5,
-        matches: [
-            {
-                Team1: "Winner of Match A/B",
-                Team2: "Winner of Match C/D",
-                image1Path: "path/to/image5.jpg",
-                image2Path: "path/to/image6.jpg"
-            },
-          
-            // Add more matches for round 2 as needed
-        ]
-    },
-    {
-        round: "4-right",
-        matches: [
-            {
-                Team1: "Winner of Match A/B",
-                Team2: "Winner of Match C/D",
-                image1Path: "path/to/image5.jpg",
-                image2Path: "path/to/image6.jpg"
-            },
-          
-            // Add more matches for round 2 as needed
-        ]
-    },
-    {
-        round: "3-right",
-        matches: [
-            {
-                Team1: "Winner of Match A/B",
-                Team2: "Winner of Match C/D",
-                image1Path: "path/to/image5.jpg",
-                image2Path: "path/to/image6.jpg"
-            },
-            {
-                Team1: "Winner of Match A/B",
-                Team2: "Winner of Match C/D",
-                image1Path: "path/to/image5.jpg",
-                image2Path: "path/to/image6.jpg"
-            },
-          
-            // Add more matches for round 2 as needed
-        ]
-    },
-    {
-        round: "2-right", // Right-side round
-        matches: [
-            {
-                Team1: "Winner of Match E/F",
-                Team2: "Winner of Match G/H",
-                image1Path: "path/to/image11.jpg",
-                image2Path: "path/to/image12.jpg"
-            },
-            {
-                Team1: "Winner of Match E/F",
-                Team2: "Winner of Match G/H",
-                image1Path: "path/to/image11.jpg",
-                image2Path: "path/to/image12.jpg"
-            },
-            {
-                Team1: "Winner of Match E/F",
-                Team2: "Winner of Match G/H",
-                image1Path: "path/to/image11.jpg",
-                image2Path: "path/to/image12.jpg"
-            },
-            {
-                Team1: "Winner of Match E/F",
-                Team2: "Winner of Match G/H",
-                image1Path: "path/to/image11.jpg",
-                image2Path: "path/to/image12.jpg"
-            },
-            // Add more right-side matches for round 2 as needed
-        ]
-    },
-    {
-        round: "1-right", // Right-side round
-        matches: [
-            {
-                Team1: "Team A",
-                score1: 0,
-                Team2: "Team B",
-                score2: 0,
-                image1Path: "path/to/image1.jpg",
-                image2Path: "path/to/image2.jpg"
-            },
-            {
-                Team1: "Team A",
-                score1: 0,
-                Team2: "Team B",
-                score2: 0,
-                image1Path: "path/to/image1.jpg",
-                image2Path: "path/to/image2.jpg"
-            },
-            {
-                Team1: "Team A",
-                score1: 0,
-                Team2: "Team B",
-                score2: 0,
-                image1Path: "path/to/image1.jpg",
-                image2Path: "path/to/image2.jpg"
-            },
-            {
-                Team1: "Team A",
-                score1: 0,
-                Team2: "Team B",
-                score2: 0,
-                image1Path: "path/to/image1.jpg",
-                image2Path: "path/to/image2.jpg"
-            },
-            {
-                Team1: "Team A",
-                score1: 0,
-                Team2: "Team B",
-                score2: 0,
-                image1Path: "path/to/image1.jpg",
-                image2Path: "path/to/image2.jpg"
-            },
-            {
-                Team1: "Team A",
-                score1: 0,
-                Team2: "Team B",
-                score2: 0,
-                image1Path: "path/to/image1.jpg",
-                image2Path: "path/to/image2.jpg"
-            },
-            {
-                Team1: "Team A",
-                score1: 0,
-                Team2: "Team B",
-                score2: 0,
-                image1Path: "path/to/image1.jpg",
-                image2Path: "path/to/image2.jpg"
-            },
-            {
-                Team1: "Team A",
-                score1: 0,
-                Team2: "Team B",
-                score2: 0,
-                image1Path: "path/to/image1.jpg",
-                image2Path: "path/to/image2.jpg"
-            },
-         
-            // Add more right-side matches for round 1 as needed
-        ]
-    },
-    // Add more rounds as needed
-];
+// Function to fetch all users from the server and create dropdown options
+async function fetchAllUserNames() {
+    try {
+        const response = await fetch('/get_all_users_name');
+        const data = await response.json();
 
+        if (response.ok) {
+            return data.users.map(user => user.name);
+        } else {
+            console.error('Error fetching user names:', data.error);
+            return [];
+        }
+    } catch (error) {
+        console.error('Error fetching user names:', error);
+        return [];
+    }
+}
+// Function to fetch tournament data from the server
+async function fetchTournamentData() {
+    try {
+        const response = await fetch('/get_tournament_model');
+        const data = await response.json();
 
-// Function to initialize the tournament brackets
-function initializeBrackets() {
+        if (response.ok) {
+            return data.tournamentData;
+        } else {
+            console.error('Error fetching tournament data:', data.error);
+            return {};
+        }
+    } catch (error) {
+        console.error('Error fetching tournament data:', error);
+        return {};
+    }
+}
+
+// Function to initialize brackets with dropdown menus
+async function initializeBrackets() {
     const tournamentElement = document.querySelector('.tournament');
 
-    tournamentData.forEach(roundData => {
-        const roundElement = document.createElement('div');
-        roundElement.classList.add(`round-${roundData.round}`);
+    // Fetch tournament data from the server
+    const fetchedTournamentData = await fetchTournamentData();
+    const userNames = await fetchAllUserNames();
 
-        roundData.matches.forEach((matchData, index) => {
-            const matchElement = document.createElement('div');
-            const matchClass = roundData.round.toString().endsWith('-right') ? 'match-right' : 'match';
-            matchElement.classList.add(matchClass);
-            matchElement.classList.add(`match-${roundData.round}`); // Add match number to the class
-            matchElement.dataset.matchId = matchData.Team1 + '-' + matchData.Team2; // Unique identifier for the match
+    // Define the order in which you want to display the rounds
+    const roundOrder = ['round-1', 'round-2', 'round-3', 'round-4', 'round-5', 'round-4-right', 'round-3-right', 'round-2-right', 'round-1-right'];
 
-            const initializeTeam = (teamElement, teamName) => {
-                teamElement.classList.add('team');
-                const teamScoreInput = document.createElement('input');
-                teamScoreInput.classList.add('score-input');
-                teamScoreInput.setAttribute('type', 'number');
-                teamScoreInput.setAttribute('placeholder', 'Score');
-                teamScoreInput.setAttribute('contenteditable', 'true'); // Make the team name text editable
-                teamScoreInput.value = 0; // Set the initial score to 0
-                teamScoreInput.addEventListener('input', function () {
-                    // Update the score when the input changes
-                    matchData['score' + (teamName === matchData.Team1 ? '1' : '2')] = parseInt(teamScoreInput.value) || 0;
-                });
-                teamElement.innerHTML = `<span class="team-name-${teamName === matchData.Team1 ? '1' : '2'}" contenteditable="true">${teamName}</span>`;
-                teamElement.appendChild(teamScoreInput);
-                return teamElement;
-            };
+    // Iterate through the roundOrder array
+    for (const roundKey of roundOrder) {
+        // Check if the round exists in the fetched data
+        if (fetchedTournamentData.hasOwnProperty(roundKey)) {
+            const roundData = fetchedTournamentData[roundKey];
+
+            const roundElement = document.createElement('div');
+            roundElement.classList.add(roundKey);
+            let roundNumber;
+            if (roundKey.includes('-right')) {
+                roundNumber = parseInt(roundKey.replace('round-', '').replace('-right', '')) + '-right';
+            } else {
+                roundNumber = parseInt(roundKey.replace('round-', ''));
+            }
             
-            const team1Element = initializeTeam(document.createElement('div'), 'Team1');
-            const team2Element = initializeTeam(document.createElement('div'), 'Team2');
+            for (const [matchKey, matchData] of Object.entries(roundData)) {
+                const matchElement = document.createElement('div');
+                matchElement.classList.add('match-'+roundNumber);
+                matchElement.dataset.matchId = matchKey; // Unique identifier for the match
 
-            matchElement.appendChild(team1Element);
-            matchElement.appendChild(team2Element);
+                console.log(roundKey);
 
-            // Append match element to the current round
-            roundElement.appendChild(matchElement);
-        });
+                const updateMatchData = () => {
+                    // Make a POST request to update the match data in the database
+                    fetch('/update_match', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            round: roundKey,
+                            match: matchKey,
+                            scores: matchData.scores || [0, 0], // Assuming scores are optional
+                            teams: matchData.teams || ['AddTeam', 'AddTeam'], // Assuming teams are optional
+                        }),
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                console.log('Match data updated successfully:', data.message);
+                            } else {
+                                console.error('Error updating match data:', data.error);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error updating match data:', error);
+                        });
+                };
 
-        // Append the current round or right-side round to the tournament element
-        tournamentElement.appendChild(roundElement);
-    });
+                const initializeTeam = (teamElement, teamName) => {
+                    teamElement.classList.add('team');
+
+                    const teamSelect = document.createElement('select');
+                    teamSelect.classList.add('team-select');
+
+                    userNames.forEach(userName => {
+                        const option = document.createElement('option');
+                        option.value = userName;
+                        option.text = userName;
+                        teamSelect.add(option);
+                    });
+
+                    teamSelect.value = matchData.teams ? matchData.teams[teamName === 'Team1' ? 0 : 1] : 'AddTeam';
+
+                    teamSelect.addEventListener('change', function () {
+                        matchData.teams[teamName === 'Team1' ? 0 : 1] = teamSelect.value;
+                        updateMatchData();
+                    });
+
+                    teamElement.appendChild(teamSelect);
+
+                    const teamScoreInput = document.createElement('input');
+                    teamScoreInput.classList.add('score-input');
+                    teamScoreInput.setAttribute('type', 'number');
+                    teamScoreInput.setAttribute('placeholder', 'Score');
+                    teamScoreInput.value = matchData.scores ? matchData.scores[teamName === 'Team1' ? 0 : 1] : 0;
+
+                    teamScoreInput.addEventListener('input', function () {
+                        // Update the score when the input changes
+                        matchData.scores[teamName === 'Team1' ? 0 : 1] = parseInt(teamScoreInput.value) || 0;
+                        updateMatchData();
+                    });
+
+                    teamElement.appendChild(teamScoreInput);
+                    return teamElement;
+                };
+
+                const team1Element = initializeTeam(document.createElement('div'), 'Team1');
+                const team2Element = initializeTeam(document.createElement('div'), 'Team2');
+
+                matchElement.appendChild(team1Element);
+                matchElement.appendChild(team2Element);
+
+                // Append match element to the current round
+                roundElement.appendChild(matchElement);
+            }
+
+            // Append the current round or right-side round to the tournament element
+            tournamentElement.appendChild(roundElement);
+        }
+    }
 }
 
 // Call the function to initialize brackets when the page loads
 window.onload = initializeBrackets;
-
 

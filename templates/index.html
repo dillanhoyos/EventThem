@@ -8,31 +8,55 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/ads.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/team.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="{{url_for('static', filename='js/mathmaker.js')}}"></script>
 
 </head>
+<style>
+    body {
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: url('{{ url_for('static', filename='images/stadium-4760441.jpg') }}') center center / cover no-repeat;
+        opacity: 0.8; /* Adjust the opacity value here */
+        z-index: -1;
+    }
+
+   
+</style>
 <body>
-<div class = "ads">
-  
-    <div class="carousel-container">
-      <label for="slide1"></label>
-      <label for="slide2"></label>
-      <label for="slide3"></label>
-  
-      <img src="static/images/Screenshot%202024-02-15%20132756.png" alt="Ad 1">
-      <img src="static/images/Screenshot 2024-02-09 150436.png" alt="Ad 2">
-      <img src="static/images/Screenshot 2024-02-01 165453.png" alt="Ad 3">|
-      <script src="{{url_for('static', filename='js/mathmaker.js')}}"></script>
+    <div class = "ads">
+        
+        <div class="carousel-container">
+            <label for="slide1"></label>
+            <label for="slide2"></label>
+            <label for="slide3"></label>
+            
+            <img src="static/images/Screenshot%202024-02-15%20132756.png" alt="Ad 1">
+            <img src="static/images/Screenshot 2024-02-09 150436.png" alt="Ad 2">
+            <img src="static/images/Screenshot 2024-02-01 165453.png" alt="Ad 3">|
+        </div>
     </div>
-</div>
+<div class="overlay">
 
-    <!-- Your HTML structure -->
-<div class="tournament" >
     
-   
+    <!-- Your HTML structure -->
+    <div class="tournament" >
+        
+        
+    </div>
+    
+    
+    
 </div>
-   
-
-
 </body>
 
 

@@ -1,0 +1,109 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.subscribe-section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#subscriptionForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    color: #555;
+    margin-bottom: 5px;
+}
+#participantImage{
+    display: block;
+    margin: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Style for file input (hide the default button) */
+input[type="file"] {
+    display: none;
+}
+
+/* Style for custom file input button */
+.custom-file-input {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-file-input:hover {
+    background-color: #2980b9;
+}
+
+.subscribed-list {
+    margin: 50px;
+}
+
+#participantList {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#participantList li {
+    margin: 10px;
+    text-align: center;
+}
+
+#participantList li p {
+    margin-bottom: 5px;
+}
+
+#participantList li img {
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Ensure the height is the same as the width to make it square */
+    object-fit: cover; /* Maintain the aspect ratio and cover the entire container */
+    border-radius: 50%; /* Make the image round by setting border-radius to half of the width/height */
+}

@@ -24,28 +24,14 @@ async function subscribe() {
             const responseData = await response.json();
 
             if (response.ok) {
-                // Get subscribed participants from localStorage
-                const subscribedParticipants = JSON.parse(localStorage.getItem('subscribedParticipants')) || [];
+                // Fetch all users after successful subscription
+                getAllUsers();
 
-                // Check if the participant is already subscribed
-                if (!subscribedParticipants.some(participant => participant.name === name)) {
-                    // Add participant to the array
-                    subscribedParticipants.push({ name, image: URL.createObjectURL(imageFile) });
+                // Clear input fields
+                participantNameInput.value = '';
+                participantImageInput.value = '';
 
-                    // Update localStorage with the new data
-                    localStorage.setItem('subscribedParticipants', JSON.stringify(subscribedParticipants));
-
-                    // Update the dropdown menu
-                    updateDropdown();
-
-                    // Clear input fields
-                    participantNameInput.value = '';
-                    participantImageInput.value = '';
-
-                    alert('Subscription successful!');
-                } else {
-                    alert('Participant is already subscribed.');
-                }
+                alert('Subscription successful!');
             } else {
                 // Handle error from the server
                 alert(`Error: ${responseData.error}`);
@@ -58,3 +44,45 @@ async function subscribe() {
         alert('Please provide both name and image.');
     }
 }
+// Function to fetch all users from the server and display their names and images
+async function getAllUsers() {
+    try {
+        // Make a GET request to your Flask endpoint to retrieve all users
+        const response = await fetch('/get_all_users');
+        const data = await response.json();
+
+        if (response.ok) {
+            const users = data.users;
+
+            // Assuming you have an HTML element with id "participantList" to display the participants
+            const participantList = document.getElementById('participantList');
+
+            // Clear existing content
+            participantList.innerHTML = '';
+
+            // Loop through the users and display their names and images
+            users.forEach(user => {
+                const listItem = document.createElement('li');
+
+                const userName = document.createElement('p');
+                userName.textContent = user.name;
+
+                const userImage = document.createElement('img');
+                userImage.src = user.image_url;
+                userImage.alt = user.name;  // Set alt text as per your requirements
+
+                listItem.appendChild(userName);
+                listItem.appendChild(userImage);
+                participantList.appendChild(listItem);
+            });
+        } else {
+            console.error('Error:', data.error);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while fetching participants.');
+    }
+}
+
+// Call the function to fetch and display participants when the page loads
+window.onload = getAllUsers;
