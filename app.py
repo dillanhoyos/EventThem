@@ -27,7 +27,9 @@ def subscribe_user():
     try:
         # Get data from the request
         name = request.form['name']
+        psHandle = request.form['PSHandle']
         image_file = request.files['image']
+
 
         # Ensure the correct storage bucket is used
         bucket = storage.bucket(app=firebase_admin.get_app())
@@ -41,8 +43,15 @@ def subscribe_user():
 
         # Save data to Firebase Realtime Database
         user_ref = db.reference('users')  # Change 'users' to your desired node
+        # Check if the name already exists in the database
+        existing_user = user_ref.order_by_child('name').equal_to(name).limit_to_first(1).get()
+
+        if existing_user:
+            return jsonify({'error': 'Name already exists in the database'}), 400
+     
         new_user_ref = user_ref.push({
             'name': name,
+            'PSHandle': psHandle,
             'image_url': image_url
         })
 
@@ -88,7 +97,7 @@ def get_all_users():
         users = user_ref.get()
 
         # Extract names and images from users
-        user_data = [{'name': user['name'], 'image_url': user['image_url']} for user in users.values()]
+        user_data = [{'name': user['name'],  'PSHandle': user['PSHandle'], 'image_url': user['image_url']} for user in users.values()]
 
         return jsonify({'success': True, 'users': user_data})
     except Exception as e:
@@ -141,10 +150,36 @@ def get_tournament_model():
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)})
 
+@app.route('/Match_Participants', methods=["POST"])
+def get_matches():
+    user_ref = db.reference('users')
+    request_data = request.get_json()
+    participants = request_data.get("participants", [])
+    print(participants)
 
+    participant_info = []
 
+    for participant_name in participants:
+        # Assuming there's a "name" property in the user document
+        user_query = user_ref.order_by_child("name").equal_to(participant_name).get()
 
+        if user_query:
+            # Assuming there's only one user with a given name (adjust as needed)
+            user_data = list(user_query.values())[0]
 
+            # Check if required properties are present in user data
+            name = user_data.get("name", "")
+            image = user_data.get("image_url", "") if "image_url" in user_data else "default_image.jpg"
+            pshandle = user_data.get("PSHandle", 0) if "PSHandle" in user_data else 0
+
+            participant_info.append({
+                "name": name,
+                "image": image,
+                "pshandle": pshandle,
+            })
+       
+
+    return jsonify(participant_info)
 
 if __name__ == '__main__':
     app.run(debug=True)

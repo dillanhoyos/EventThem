@@ -2,17 +2,20 @@
 async function subscribe() {
     const participantNameInput = document.getElementById('participantName');
     const participantImageInput = document.getElementById('participantImage');
+    const participantPSHandle =  document.getElementById('participantPSHandle')
 
     // Get input values
     const name = participantNameInput.value.trim();
+    const psHandle = participantPSHandle.value.trim();
     const imageFile = participantImageInput.files[0]; // Get the first file from the input
 
     // Validate inputs
-    if (name && imageFile) {
+    if (name && imageFile ) {
         try {
             // Create FormData object to handle file upload
             const formData = new FormData();
             formData.append('name', name);
+            formData.append('PSHandle', psHandle);
             formData.append('image', imageFile);
 
             // Make a POST request to your Flask endpoint
@@ -29,6 +32,7 @@ async function subscribe() {
 
                 // Clear input fields
                 participantNameInput.value = '';
+                participantPSHandle.value = '';
                 participantImageInput.value = '';
 
                 alert('Subscription successful!');
@@ -51,7 +55,7 @@ async function getAllUsers() {
         const response = await fetch('/get_all_users');
         const data = await response.json();
 
-        if (response.ok) {
+        if (data.success === true) {
             const users = data.users;
 
             // Assuming you have an HTML element with id "participantList" to display the participants
@@ -67,16 +71,21 @@ async function getAllUsers() {
                 const userName = document.createElement('p');
                 userName.textContent = user.name;
 
+                const PSHandle = document.createElement('p');
+                PSHandle.textContent = user.PSHandle;
+
                 const userImage = document.createElement('img');
                 userImage.src = user.image_url;
                 userImage.alt = user.name;  // Set alt text as per your requirements
 
                 listItem.appendChild(userName);
+                listItem.appendChild(PSHandle);
                 listItem.appendChild(userImage);
                 participantList.appendChild(listItem);
             });
         } else {
             console.error('Error:', data.error);
+            console.error('Error:', "There are no Users yet");
         }
     } catch (error) {
         console.error('Error:', error);

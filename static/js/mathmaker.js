@@ -1,3 +1,5 @@
+
+
 // Function to fetch all users from the server and create dropdown options
 async function fetchAllUserNames() {
     try {
@@ -36,6 +38,7 @@ async function fetchTournamentData() {
 // Function to initialize brackets with dropdown menus
 async function initializeBrackets() {
     const tournamentElement = document.querySelector('.tournament');
+   
 
     // Fetch tournament data from the server
     const fetchedTournamentData = await fetchTournamentData();
@@ -59,6 +62,7 @@ async function initializeBrackets() {
                 roundNumber = parseInt(roundKey.replace('round-', ''));
             }
             
+           
             for (const [matchKey, matchData] of Object.entries(roundData)) {
                 const matchElement = document.createElement('div');
                 matchElement.classList.add('match-'+roundNumber);
@@ -130,20 +134,103 @@ async function initializeBrackets() {
                     teamElement.appendChild(teamScoreInput);
                     return teamElement;
                 };
-
+                
                 const team1Element = initializeTeam(document.createElement('div'), 'Team1');
                 const team2Element = initializeTeam(document.createElement('div'), 'Team2');
-
+                
+                const showParticipantsButton = document.createElement('button');
+                
+                // Check if the match has the -right postfix
+                if (roundKey.includes('-right')) {
+                    showParticipantsButton.classList.add('participants-button-right');
+                } else {
+                    showParticipantsButton.classList.add('participants-button');
+                } 
+                
+                showParticipantsButton.addEventListener('click', function () {
+                    // Implement the logic to show match participants
+                    // You can access matchData.teams array to get the participants
+                    const participants = matchData.teams || "";
+                  
+                    // Assuming your overlay object has a method to display information
+                    showParticipantsOverlay(participants);
+                });
+                
+                
+                matchElement.appendChild(showParticipantsButton);
                 matchElement.appendChild(team1Element);
                 matchElement.appendChild(team2Element);
-
-                // Append match element to the current round
+                
+                if (roundKey === 'round-5') {
+                    const imageElement = document.createElement('img');
+                    imageElement.src = 'static/images/EventThem Logo - White Box.jpg';
+                    imageElement.alt = 'Round 5 Image';
+                    imageElement.classList.add('round-5-image'); // Add a specific class for styling
+                    roundElement.appendChild(imageElement);
+                }
                 roundElement.appendChild(matchElement);
+                // Append match element to the current round
+                if (roundKey === 'round-5') {
+                    const imageElement = document.createElement('img');
+                    imageElement.src = 'static/images/EventThemStudios-FINAL (1).png';
+                    imageElement.alt = 'Round 5 Image';
+                    imageElement.classList.add('round-5-image'); // Add a specific class for styling
+                    roundElement.appendChild(imageElement);
+                }
             }
 
             // Append the current round or right-side round to the tournament element
             tournamentElement.appendChild(roundElement);
         }
+    }
+}
+async function showParticipantsOverlay(participants) {
+        // Example overlay object initialization
+    const overlay = document.getElementById("Match_Overlay");
+        
+    overlay.style.display = "block";
+    // Fetch information for participants from the "Match_information" route
+    const participantInfo = await fetchParticipantInfo(participants);
+    console.log(participantInfo)
+    // Display participants information in the overlay
+    updateParticipantUI(overlay.querySelector('.participant'), participantInfo[0]); // First participant
+    updateParticipantUI(overlay.querySelector('.participant-right'), participantInfo[1]); // Second participant
+}
+
+function updateParticipantUI(participantElement, participantData) {
+    if (participantElement) {
+        console.log(participantElement)
+        // Update the elements by reference
+        const imgElement = participantElement.querySelector('img');
+        const nameElement = participantElement.querySelector('span');
+        const PSHandleElement = participantElement.querySelector('span:last-child');
+
+        imgElement.src = participantData.image;
+        nameElement.textContent = participantData.name;
+        PSHandleElement.textContent = participantData.pshandle;
+    }
+}
+
+
+async function fetchParticipantInfo(participants) {
+    try {
+        // Assuming your backend API provides a "Match_information" route
+        const response = await fetch('/Match_Participants', {
+            method: 'POST', // Adjust the method as needed
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ participants }),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch participant information: ${response.statusText}`);
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error(error);
+        // Handle the error as needed
     }
 }
 

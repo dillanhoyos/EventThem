@@ -9,21 +9,22 @@
 
   .carousel-container {
     display: flex;
-    animation: slide 10s infinite; /* Adjust the duration as needed */
+   
+    animation: slide 20s infinite;
+    animation-delay: 4s; /* Add a 2-second delay before starting the animation */
   }
-
+  
   img {
     width: 100%;
+    height: 250px;
   }
-
+  
   @keyframes slide {
-    0%, 25% {
+    0% {
       transform: translateX(0);
     }
-    25%, 50% {
-      transform: translateX(-25%);
-    }
+    
     50% {
-      transform: translateX(-25%); /* Adjusted to cover three images */
+      transform: translateX(-68%); /* Adjusted for three images */
     }
   }

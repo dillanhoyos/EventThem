@@ -1,0 +1,90 @@
+/* Apply styles to the overlay container */
+.overlay-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background with slight transparency */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Apply styles to the overlay content */
+.overlay-content {
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 0px;
+    padding: 100px;
+    display: flex;
+    flex-direction: row; /* Display in a row for a two-column layout */
+    justify-content: space-between; /* Add space between columns */
+    max-width: 800px; /* Adjust the maximum width as needed */
+    background-color: #fff; /* White background */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Add a subtle shadow */
+}
+
+/* Apply styles to the left participant column */
+.participant,
+.participant-right {
+    text-align: center;
+    color: #333; /* Dark text color */
+    flex: 1; /* Equal width for both columns */
+}
+
+/* Apply styles to participant images */
+.participant img,
+.participant-right img {
+    width: 120px; /* Adjust the image width as needed */
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Apply styles to the text elements */
+.participant h2,
+.participant-right h2 {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.participant p,
+.participant-right p {
+    margin: 5px 0;
+}
+
+/* Apply styles to the close button */
+#closeMatchButton {
+    display: relative;
+    background-color: #FF4500; /* Dark Orange button background */
+    color: #fff; /* White text color */
+    top:120px;
+    padding: 12px 24px;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Add additional styles as needed */
+ /* Apply styles to the text elements */
+ label {
+    display: block;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #007BFF; /* Blue text color for labels */
+}
+
+span {
+    display: block;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 18px; /* Adjust font size as needed */
+}

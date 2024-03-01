@@ -1,0 +1,27 @@
+
+.title {
+    text-align: center;
+    background-color: #3498db; /* Background color for the title */
+    padding: 15px; /* Add padding for better visibility of the background */
+    border-radius: 8px; /* Add some border-radius for rounded corners */
+}
+
+.title h1 {
+    color: #fff; /* Text color */
+    font-family: 'Arial', sans-serif;
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    animation: titleAnimation 2s ease-in-out 3; /* Animation properties */
+}
+
+/* Keyframes for the animation */
+@keyframes titleAnimation {
+    0%, 100% {
+        transform: scale(1); /* Initial and final state */
+    }
+    50% {
+        transform: scale(1.2); /* Scale up at 50% of the animation duration */
+    }
+}

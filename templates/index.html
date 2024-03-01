@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rotated Pyramid with Dots</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/matches.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/ads.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/team.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/title.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <script src="{{url_for('static', filename='js/mathmaker.js')}}"></script>
 
@@ -26,7 +28,7 @@
         bottom: 0;
         left: 0;
         background: url('{{ url_for('static', filename='images/stadium-4760441.jpg') }}') center center / cover no-repeat;
-        opacity: 0.8; /* Adjust the opacity value here */
+        opacity: 0.5; /* Adjust the opacity value here */
         z-index: -1;
     }
 
@@ -40,23 +42,64 @@
             <label for="slide2"></label>
             <label for="slide3"></label>
             
-            <img src="static/images/Screenshot%202024-02-15%20132756.png" alt="Ad 1">
-            <img src="static/images/Screenshot 2024-02-09 150436.png" alt="Ad 2">
-            <img src="static/images/Screenshot 2024-02-01 165453.png" alt="Ad 3">|
+            <img src="static/images/Common Roots - Group Logo - FEB2023 - White.jpg" alt="Ad 1">
+            <img src="static/images/ETS Exterior 2.jpg" alt="Ad 2">
+            <img src="static/images/EVENTTHEM LOGO 2023.jpg" alt="Ad 3">|
+            <img src="static/images/EventThemStudios-FINAL (1).png" alt="Ad 4">|
+            <img src="static/images/EVENTTHEM LOGO 2023.jpg" alt="Ad 5">|
         </div>
     </div>
-<div class="overlay">
-
-    
+    <div class="overlay">
+        <div class="title">
+            <h1> FIFA Tournament by EVENTTHEM </h>
+        </div>
+        
     <!-- Your HTML structure -->
     <div class="tournament" >
         
         
     </div>
+    <div id="Match_Overlay" class="overlay-container">
+        <div class="overlay-content">
+            <!-- Static content for the Match Overlay -->
+            <div class="participant">
+                <img src="teamA_image.jpg" alt="Team A">
+                <label>Team:</label>
+                <span>Team A</span>
+                <br>
+                <label>Handle:</label>
+                <span>PSHandle: 0</span>
+            </div>
+            <div>
+                <h1>VS</h1>
+            </div>
+            <div class="participant-right">
+                <img src="teamB_image.jpg" alt="Team B">
+                <label>Team:</label>
+                <span>Team B</span>
+                <br>
+                <label>Handle:</label>
+                <span>PSHandle: 0</span>
+            </div>
+            <!-- Close button -->
+        </div>
+        <button id="closeMatchButton">Close Match</button>
+    </div>
     
     
     
 </div>
+<script>
+    // Get references to the overlay and the close button
+    const overlay = document.getElementById("Match_Overlay");
+    const closeButton = document.getElementById("closeMatchButton");
+
+    // Add click event listener to the close button
+    closeButton.addEventListener("click", function () {
+        // Hide the overlay when the button is clicked
+        overlay.style.display = "none";
+    });
+</script>
 </body>
 
 
