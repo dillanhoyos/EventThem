@@ -39,14 +39,15 @@ async function fetchTournamentData() {
 async function initializeBrackets() {
     const tournamentElement = document.querySelector('.tournament');
    
-
     // Fetch tournament data from the server
     const fetchedTournamentData = await fetchTournamentData();
     const userNames = await fetchAllUserNames();
 
     // Define the order in which you want to display the rounds
-    const roundOrder = ['round-1', 'round-2', 'round-3', 'round-4', 'round-5', 'round-4-right', 'round-3-right', 'round-2-right', 'round-1-right'];
-
+    const roundOrder = [ 'round-1','round-2','round-3', 'round-4', 'round-5', 'round-4-right', 'round-3-right', 'round-2-right', 'round-1-right'];
+   
+    tournamentElement.style.display = 'grid';
+    tournamentElement.style.gridTemplateColumns =  `repeat(${roundOrder.length}, 1fr)`;
     // Iterate through the roundOrder array
     for (const roundKey of roundOrder) {
         // Check if the round exists in the fetched data
@@ -138,26 +139,26 @@ async function initializeBrackets() {
                 const team1Element = initializeTeam(document.createElement('div'), 'Team1');
                 const team2Element = initializeTeam(document.createElement('div'), 'Team2');
                 
-                const showParticipantsButton = document.createElement('button');
+                // const showParticipantsButton = document.createElement('button');
                 
-                // Check if the match has the -right postfix
-                if (roundKey.includes('-right')) {
-                    showParticipantsButton.classList.add('participants-button-right');
-                } else {
-                    showParticipantsButton.classList.add('participants-button');
-                } 
+                // // Check if the match has the -right postfix
+                // if (roundKey.includes('-right')) {
+                //     showParticipantsButton.classList.add('participants-button-right');
+                // } else {
+                //     showParticipantsButton.classList.add('participants-button');
+                // } 
                 
-                showParticipantsButton.addEventListener('click', function () {
-                    // Implement the logic to show match participants
-                    // You can access matchData.teams array to get the participants
-                    const participants = matchData.teams || "";
+                // showParticipantsButton.addEventListener('click', function () {
+                //     // Implement the logic to show match participants
+                //     // You can access matchData.teams array to get the participants
+                //     const participants = matchData.teams || "";
                   
-                    // Assuming your overlay object has a method to display information
-                    showParticipantsOverlay(participants);
-                });
+                //     // Assuming your overlay object has a method to display information
+                //     showParticipantsOverlay(participants);
+                // });
                 
                 
-                matchElement.appendChild(showParticipantsButton);
+                // matchElement.appendChild(showParticipantsButton);
                 matchElement.appendChild(team1Element);
                 matchElement.appendChild(team2Element);
                 
@@ -183,6 +184,13 @@ async function initializeBrackets() {
             tournamentElement.appendChild(roundElement);
         }
     }
+    roundOrder.forEach((roundKey, index) => {
+        const gridColumnStart = index + 1; // Adjust the starting column index as needed
+        const gridColumnEnd = gridColumnStart + 1; // Adjust the ending column index as needed
+        const roundElement = document.querySelector(`.${roundKey}`);
+        roundElement.style.gridColumn = `${gridColumnStart} / ${gridColumnEnd}`;
+    });
+
 }
 async function showParticipantsOverlay(participants) {
         // Example overlay object initialization

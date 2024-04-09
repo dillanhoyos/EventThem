@@ -11,6 +11,9 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
  
 }
+:root {
+    --line-color: rgba(0, 0, 0, 0); /* Define the variable */
+  }
 .overlay{
     display: block;
 }
@@ -28,22 +31,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f0f0f0;
+    background-color: #0000008b;
     border: 1px solid #ccc;
     margin: 5px;
-    width: 100px;
+    width: 120px;
     height: 12px; /* Adjusted height to 12px */
+    text-emphasis-color: white;
     font-size: 14px; /* Increased font size */
     padding: 5px 5px; /* Added padding for longer teams */
 }
 
-.team:nth-child(even) {
-    background-color: #e0e0e0;
-}
+
 
 .match-1 {
     position: relative;
     padding-bottom: 15px;
+    padding-left: calc((90% - 120px) / 2); /* Calculate padding to center */
+    padding-right: calc((90% - 120px) / 2);
 }
 
 /* Draw connecting lines between matches in the same round */
@@ -52,29 +56,33 @@ body {
     position: absolute;
     top: 38%;
     left: 100%;
-    width: 20px;
+    width: calc(100% - 78%);
     height: 1px;
-    background-color: #ccc;
+    background-color:var(--line-color);
     transform: translateY(-50%);
 }
 .match-1-right {
     position: relative;
     padding-bottom: 15px;
+    padding-left: calc((90% - 120px) / 2); /* Calculate padding to center */
+    padding-right: calc((90% - 120px) / 2);
 }
 
 .match-1-right::before {
     content: '';
     position: absolute;
     top: 38%;
-    left: -25px;
-    width: 20px;
+    left: -8%;
+    width: calc(100% - 78%);
     height: 1px;
-    background-color: #ccc;
+    background-color: var(--line-color);
     transform: translateY(-50%);
 }
 .match-2 {
     position: relative;
     padding-bottom: 0px;
+    padding-left: calc((90% - 120px) / 2); /* Calculate padding to center */
+    padding-right: calc((90% - 120px) / 2);
 }
 
 /* Draw connecting lines between matches in the same round */
@@ -83,14 +91,16 @@ body {
     position: absolute;
     top: 50px;
     left: 100%;
-    width: 20px;
+    width: calc(100% - 78%);
     height: 1px;
-    background-color: #ccc;
+    background-color: var(--line-color);
     transform: translateY(-50%);
 }
 .match-3 {
     position: relative;
     padding-bottom: 0px;
+    padding-left: calc((90% - 120px) / 2); /* Calculate padding to center */
+    padding-right: calc((90% - 120px) / 2);
 }
 
 /* Draw connecting lines between matches in the same round */
@@ -99,33 +109,43 @@ body {
     position: absolute;
     top: 85px;
     left: 100%;
-    width: 20px;
+    width: calc(100% - 78%);
     height: 1px;
-    background-color: #ccc;
+    background-color: var(--line-color);
     transform: translateY(-50%);
 }
 .match-4 {
     position: relative;
     padding-bottom: 0px;
+    padding-left: calc((90% - 120px) / 2); /* Calculate padding to center */
+    padding-right: calc((90% - 120px) / 2);
 }
 
 /* Draw connecting lines between matches in the same round */
 .match-4::after {
     content: '';
     position: absolute;
-    top: 175px;
+    top: 170px;
     left: 100%;
-    width: 20px;
+    width: calc(100% - 78%);
     height: 1px;
-    background-color: #ccc;
+    background-color: var(--line-color);
     transform: translateY(-50%);
 }
+.match-5{
+    align-items: center;
+    padding-left: calc((90% - 120px) / 2); /* Calculate padding to center */
+    padding-right: calc((90% - 120px) / 2);
+    padding-top: 9%;
+} 
 .match-5::after {
     display: none;
     
 }
 .match-2-right {
     position: relative;
+    padding-left: calc((90% - 120px) / 2); /* Calculate padding to center */
+    padding-right: calc((90% - 120px) / 2);
 }
 
 /* Draw connecting lines between matches in the same round */
@@ -133,14 +153,16 @@ body {
     content: '';
     position: absolute;
     top: 50px;
-    left: -25px;
-    width: 20px;
+    left: -8%;
+    width: calc(100% - 78%);
     height: 1px;
-    background-color: #ccc;
+    background-color: var(--line-color);
     transform: translateY(-50%);
 }
 .match-3-right {
     position: relative;
+    padding-left: calc((90% - 120px) / 2); /* Calculate padding to center */
+    padding-right: calc((90% - 120px) / 2);
 }
 
 /* Draw connecting lines between matches in the same round */
@@ -148,26 +170,28 @@ body {
     content: '';
     position: absolute;
     top: 85px;
-    left: -25px;
-    width: 20px;
+    left: -8%;
+    width: calc(100% - 78%);
     height: 1px;
-    background-color: #ccc;
+    background-color: var(--line-color);
     transform: translateY(-50%);
 }
 .match-4-right {
     position: relative;
     padding-bottom: 0px;
+    padding-left: calc((90% - 120px) / 2); /* Calculate padding to center */
+    padding-right: calc((90% - 120px) / 2);
 }
 
 /* Draw connecting lines between matches in the same round */
 .match-4-right::before {
     content: '';
     position: absolute;
-    top: 85px;
-    left: -25px;
-    width: 20px;
+    top: 80px;
+    left: -8%;
+    width: calc(100% - 78%);
     height: 1px;
-    background-color: #ccc;
+    background-color: var(--line-color);
     transform: translateY(-50%);
 }
 
@@ -251,6 +275,7 @@ body {
 .round-5 {
     grid-column: 5 / 6;
     padding-top: 0px;
+    
 }
 .round-5-image{
     grid-column: 5 / 6;
@@ -258,11 +283,29 @@ body {
     padding-top: 10px;
     padding-bottom: 50px;
 }
+.round-5-image {
+    grid-column: 5 / 6;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    width:  150px; /* Ensure image maintains aspect ratio */
+    height: 150px; /* Ensure image maintains aspect ratio */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    padding-left: calc((90% - 120px) / 2); /* Calculate padding to center */
+    padding-right: calc((90% - 120px) / 2);
+}
+
+.round-5-image img {
+    width:  150px; /* Ensure image maintains aspect ratio */
+    height: 120px; /* Ensure image maintains aspect ratio */
+}
 
 /* Customize the styling for teams within round-3 */
 .round-5 .team {
     position: relative;
     margin-bottom: 65px /* Adjust as needed */
+
 }
 
 
@@ -276,15 +319,18 @@ body {
 .score-input {
     position: relative;
     right: 0;
-    width: 30px;
+    width: 50px;
     height: 100%;
-    text-align: right;
+    text-align: center;
     border: none;
     background: none;
-    font-size: 14px; /* Set your preferred font size */
+    font-size: 16px; /* Set your preferred font size */
     font-weight: bold; /* Set your preferred font weight */
-    color: #333; /* Set your preferred text color */
-    outline: none;
+    color: #ffffff; /* Set your preferred text color */
+    -webkit-text-stroke: 0.2px black;  /* For webkit-based browsers like Chrome and Safari */
+    -webkit-text-fill-color: white; /* For webkit-based browsers */
+    outline: black;
+    
 }
 
 /* Adjustments for the right-side matches */
