@@ -1,19 +1,47 @@
 
 .title {
     text-align: center;
-    background-color: #3498db; /* Background color for the title */
+    background-color: #5cade38b; /* Background color for the title */
     padding: 15px; /* Add padding for better visibility of the background */
     border-radius: 8px; /* Add some border-radius for rounded corners */
 }
 
 .title h1 {
     color: #fff; /* Text color */
-    font-family: 'Arial', sans-serif;
+    font-family: 'CoolFont', sans-serif; /* Replace 'CoolFont' with your desired font */
     font-size: 36px;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 10px;
     animation: titleAnimation 2s ease-in-out 3; /* Animation properties */
+    border: 2px solid #fff; /* Border properties */
+    padding: 10px 20px; /* Padding to create space between text and border */
+    -webkit-text-stroke: 2px #000; /* Border around letters */
+    -webkit-text-fill-color: transparent; /* Making text tran*/
+
+}
+
+.title2 {
+    text-align: center;
+    background-image: url('/static/images/abs.jpg');  
+    background-size: cover;
+    padding: 15px; /* Add padding for better visibility of the background */
+    border-radius: 8px; /* Add some border-radius for rounded corners */
+}
+
+.title2 h1 {
+    color: #fff; /* Text color */
+    font-family: 'CoolFont', sans-serif; /* Replace 'CoolFont' with your desired font */
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    animation: titleAnimation 2s ease-in-out 3; /* Animation properties */
+    
+    padding: 10px 20px; /* Padding to create space between text and border */
+    -webkit-text-stroke: 2px #3d3333; /* Border around letters */
+    -webkit-text-fill-color: white; /* Making text tran*/
+
 }
 
 /* Keyframes for the animation */

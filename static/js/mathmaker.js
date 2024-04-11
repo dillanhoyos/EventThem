@@ -149,9 +149,10 @@ async function initializeBrackets() {
                         // Implement the logic to show match participants
                         // You can access matchData.teams array to get the participants
                         const participants = matchData.teams || "";
+                        const inputnode = [team1Element.querySelector('.score-input'), team2Element.querySelector('.score-input')]
                       
                         // Assuming your overlay object has a method to display information
-                        showParticipantsOverlay(participants);
+                        showParticipantsOverlay(participants, inputnode);
                     });
                     matchElement.appendChild(showParticipantsButton);
                 }
@@ -189,28 +190,36 @@ async function initializeBrackets() {
     });
 
 }
-async function showParticipantsOverlay(participants) {
+async function showParticipantsOverlay(participants, inputnode) {
         // Example overlay object initialization
     const overlay = document.getElementById("Match_Overlay");
         
     overlay.style.display = "block";
+    
     // Fetch information for participants from the "Match_information" route
     const participantInfo = await fetchParticipantInfo(participants);
     console.log(participantInfo)
     // Display participants information in the overlay
-    updateParticipantUI(overlay.querySelector('.participant'), participantInfo[0]); // First participant
-    updateParticipantUI(overlay.querySelector('.participant-right'), participantInfo[1]); // Second participant
+    updateParticipantUI(overlay.querySelector('.participant'), participantInfo[0], inputnode[0]); // First participant
+    updateParticipantUI(overlay.querySelector('.participant-right'), participantInfo[1], inputnode[1]); // Second participant
 }
 
-function updateParticipantUI(participantElement, participantData) {
+function updateParticipantUI(participantElement, participantData, inputnode) {
     if (participantElement) {
         console.log(participantElement)
+        console.log(inputnode)
         // Update the elements by reference
         const imgElement = participantElement.querySelector('img');
         const nameElement = participantElement.querySelector('span');
-
+        
+        
         imgElement.src = participantData.image;
         nameElement.textContent = participantData.name;
+        
+        if (!participantElement.querySelector('input')) {
+            var appendage = inputnode.cloneNode(true);
+            participantElement.appendChild(appendage);
+        }
     }
 }
 
