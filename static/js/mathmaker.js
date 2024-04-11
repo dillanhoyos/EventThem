@@ -44,7 +44,7 @@ async function initializeBrackets() {
     const userNames = await fetchAllUserNames();
 
     // Define the order in which you want to display the rounds
-    const roundOrder = [ 'round-1','round-2','round-3', 'round-4', 'round-5', 'round-4-right', 'round-3-right', 'round-2-right', 'round-1-right'];
+    const roundOrder = [ 'round-1', 'round-2', 'round-3','round-4', 'round-5', 'round-4-right', 'round-3-right', 'round-2-right', 'round-1-right'];
    
     tournamentElement.style.display = 'grid';
     tournamentElement.style.gridTemplateColumns =  `repeat(${roundOrder.length}, 1fr)`;
@@ -139,27 +139,22 @@ async function initializeBrackets() {
                 const team1Element = initializeTeam(document.createElement('div'), 'Team1');
                 const team2Element = initializeTeam(document.createElement('div'), 'Team2');
                 
-                // const showParticipantsButton = document.createElement('button');
-                
-                // // Check if the match has the -right postfix
-                // if (roundKey.includes('-right')) {
-                //     showParticipantsButton.classList.add('participants-button-right');
-                // } else {
-                //     showParticipantsButton.classList.add('participants-button');
-                // } 
-                
-                // showParticipantsButton.addEventListener('click', function () {
-                //     // Implement the logic to show match participants
-                //     // You can access matchData.teams array to get the participants
-                //     const participants = matchData.teams || "";
-                  
-                //     // Assuming your overlay object has a method to display information
-                //     showParticipantsOverlay(participants);
-                // });
+               
                 
                 
-                // matchElement.appendChild(showParticipantsButton);
                 matchElement.appendChild(team1Element);
+                if(roundKey === 'round-5'){
+                    const showParticipantsButton = document.createElement('button');
+                    showParticipantsButton.addEventListener('click', function () {
+                        // Implement the logic to show match participants
+                        // You can access matchData.teams array to get the participants
+                        const participants = matchData.teams || "";
+                      
+                        // Assuming your overlay object has a method to display information
+                        showParticipantsOverlay(participants);
+                    });
+                    matchElement.appendChild(showParticipantsButton);
+                }
                 matchElement.appendChild(team2Element);
                 
                 if (roundKey === 'round-5') {
@@ -167,9 +162,11 @@ async function initializeBrackets() {
                     imageElement.src = 'static/images/EventThem Logo - White Box.jpg';
                     imageElement.alt = 'Round 5 Image';
                     imageElement.classList.add('round-5-image'); // Add a specific class for styling
+
                     roundElement.appendChild(imageElement);
                 }
                 roundElement.appendChild(matchElement);
+
                 // Append match element to the current round
                 if (roundKey === 'round-5') {
                     const imageElement = document.createElement('img');
@@ -211,11 +208,9 @@ function updateParticipantUI(participantElement, participantData) {
         // Update the elements by reference
         const imgElement = participantElement.querySelector('img');
         const nameElement = participantElement.querySelector('span');
-        const PSHandleElement = participantElement.querySelector('span:last-child');
 
         imgElement.src = participantData.image;
         nameElement.textContent = participantData.name;
-        PSHandleElement.textContent = participantData.pshandle;
     }
 }
 

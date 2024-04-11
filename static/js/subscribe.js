@@ -79,7 +79,6 @@ async function getAllUsers() {
                 userImage.alt = user.name;  // Set alt text as per your requirements
 
                 listItem.appendChild(userName);
-                listItem.appendChild(PSHandle);
                 listItem.appendChild(userImage);
                 participantList.appendChild(listItem);
             });

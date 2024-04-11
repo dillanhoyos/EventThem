@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Define the shape and design of your frame -->
+  <rect x="10" y="10" width="180" height="180" fill="none" stroke="black" stroke-width="5" />
+  <rect x="20" y="20" width="160" height="160" fill="none" stroke="black" stroke-width="5" />
+  <!-- Add any other decorative elements as needed -->
+</svg>

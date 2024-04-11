@@ -32,6 +32,20 @@
         z-index: -1;
     }
 
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Adjust as needed */
+      width: 50vw;
+    }
+
+    .background-removed {
+      background: none;
+      width: 50%;
+    }
+    
+
    
 </style>
 <body>
@@ -61,23 +75,25 @@
     </div>
     <div id="Match_Overlay" class="overlay-container">
         <div class="overlay-content">
-            <!-- Static content for the Match Overlay -->
-            <div class="participant">
-                <img src="teamA_image.jpg" alt="Team A">
-                <label>Team:</label>
-                <span>Team A</span>
-                <br>
-               
-            </div>
-            <div>
-                <h1>VS</h1>
-            </div>
-            <div class="participant-right">
-                <img src="teamB_image.jpg" alt="Team B">
-                <label>Team:</label>
-                <span>Team B</span>
-                <br>
+            <div class="frame-container">
+                <img src="static/images/FieldSoccer.jpg" alt="Frame" class="frame">
+                    <!-- Static content for the Match Overlay -->
+                    <div class="participant">
+                        <img src="teamA_image.jpg" alt="Team A">
+                        <label>Team:</label>
+                        <span>Team A</span>
+                        <br>
+                    
+                    </div>
                 
+                    <img src="static/images/VS.png"  class="background-removed">
+                    <div class="participant-right">
+                        <img src="teamB_image.jpg" alt="Team B">
+                        <label>Team:</label>
+                        <span>Team B</span>
+                        <br>
+                        
+                    </div>
             </div>
             <!-- Close button -->
         </div>
