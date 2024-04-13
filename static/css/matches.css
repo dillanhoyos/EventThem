@@ -14,13 +14,13 @@
 
 /* Apply styles to the overlay content */
 .overlay-content {
+    display: flex;
     text-align: center;
     margin-top: 10px;
     margin-left: 25%;
     margin-right: 25%;
     margin-bottom: 0px;
     padding: 250px;
-    display: flex;
     flex-direction: row; /* Display in a row for a two-column layout */
     justify-content: center; /* Add space between columns */
     max-width: 800px; /* Adjust the maximum width as needed */
@@ -28,14 +28,16 @@
     z-index: 1;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Add a subtle shadow */
-    background-image:  url('/static/images/abs.jpg');
+    background-color:  beige
 }
 
 .frame-container {
     position: fixed;
     display: flex;
+    flex-direction: column;
     align-self: center;
     align-items: center;
+   
     width: 700px;
     height: 450px
 
@@ -45,7 +47,8 @@
 
 .frame {
     position: absolute;
-    display: block;
+    display: flex;
+    flex-direction: row;
     top: 0;
     left: 0;
     z-index: -1;
@@ -58,8 +61,9 @@
 /* Apply styles to the left participant column */
 .participant,
 .participant-right {
+    display: block;
     text-align: center;
-    color: #ffffff; /* Dark text color */
+    color: #000000; /* Dark text color */
     flex: 1; /* Equal width for both columns */
 }
 
@@ -70,6 +74,9 @@
     height: 120px;
     border-radius: 50%;
     margin-bottom: 10px;
+}
+.participant span{
+    font-size: 36
 }
 
 /* Apply styles to the text elements */
@@ -105,13 +112,19 @@
     display: block;
     align-items: center;
     font-weight: bold;
+    font-size: 36px;
     margin-bottom: 5px;
-    color: #007BFF; /* Blue text color for labels */
+    color: #ffbf00; /* Blue text color for labels */
+    -webkit-text-stroke: 0.8px rgb(255, 204, 0); /* Border around letters */
+    -webkit-text-fill-color: rgb(11, 10, 10); /* Making text tran*/
 }
 
-span {
+.participant span {
     display: block;
     align-items: center;
     margin-bottom: 5px;
-    font-size: 18px; /* Adjust font size as needed */
+    font-size: 48px; /* Adjust font size as needed */
+    color: black;
+    -webkit-text-stroke: 0.2px rgb(255, 0, 0); /* Border around letters */
+    -webkit-text-fill-color: rgb(0, 0, 0);
 }

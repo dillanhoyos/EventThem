@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="subscribe-section">
+        <button type="button" onclick="deleteParticipants()">deleteParticipants</button>
         <h2>Subscribe</h2>
         <form id="subscriptionForm">
             <label for="participantName">Name:</label>
@@ -21,6 +22,7 @@
             <input type="file" id="participantImage" accept="image/*" required>
     
             <button type="button" onclick="subscribe()">Subscribe</button>
+            <a href="/" class="subscribebutton">Subscribe Participants</a>
         </form>
     </div>
     <div class="subscribed-list">

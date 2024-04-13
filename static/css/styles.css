@@ -24,6 +24,7 @@ body {
     grid-template-columns: repeat(9, 2fr);
     gap: 10px;
     height: 100%;
+    width: 100%;
 }
 
 
@@ -138,6 +139,8 @@ body {
     padding-right: calc((90% - 120px) / 2);
     padding-top: 9%;
 } 
+
+
 .match-5::after {
     display: none;
     
@@ -339,6 +342,26 @@ body {
     left: initial;
 }
 
+
+.button_class{
+    display: block;
+    padding: 0;
+    margin:0;
+    align-items: center;
+    align-self: center;
+    text-align: center;
+    margin: 0 auto; /* This will center the element horizontally */
+   
+    background-image: url('/static/images/cup.jpg');
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.361);
+    
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 .participants-button {
     position: absolute;
     right: 0;
@@ -355,7 +378,7 @@ body {
     margin-top: 50px;
     height: 10px;
     width: 10px;
-    background-color: #db6634;
+    background-color: #000000;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -378,4 +401,53 @@ body {
 
 .participants-button-right:hover {
     background-color: #2980b9;
+}
+
+/* Style the dropdown items */
+.dropdown-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Set the width */
+    height: 40px; /* Set the height */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    text-decoration: none;
+    color: #333; /* Text color */
+    background-color: #f9f9f9; /* Background color */
+    border: none; /* Remove borders */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Change the background color when hovering over the dropdown items */
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+.subscribebutton {
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #007bff; /* subscribeButton background color */
+    color: #fff; /* subscribeButton text color */
+    text-decoration: none;
+    border-radius: 5px; /* subscribeButton border radius */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions for hover and click effects */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth effect */
+}
+
+.subscribebutton:hover {
+    background-color: #0056b3; /* subscribeButton background color on hover */
+    transform: translateY(-2px); /* Move subscribebutton slightly up on hover for depth effect */
+}
+
+.subscribebutton:active {
+    transform: translateY(0); /* Reset transform on click */
+    box-shadow: none; /* Remove shadow on click */
+}
+.framer{
+    position: absolute;
+    align-self:center; 
+    margin: 0 auto;
+    opacity: 25%;
+    width: 70%; 
+    height:100%;
 }

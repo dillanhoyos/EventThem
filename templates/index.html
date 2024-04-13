@@ -64,6 +64,7 @@
         </div>
     </div>
     <div class="overlay">
+       
         <div class="title">
             <h1> FIFA Royalty by EVENTTHEM </h>
         </div>
@@ -75,11 +76,16 @@
     </div>
     <div id="Match_Overlay" class="overlay-container">
         <div class="title2">
-            <h1> FINAL MATCH sponsored by EVENTTHEM </h>
+            <h1>CHAMPION!</h>
         </div>
         <div class="overlay-content">
             <div class="frame-container">
-                <img src="static/images/arean.jpg" alt="Frame" class="frame">
+                <div class="title3" >
+                    <h1> 2024 EVENTTHEM Champion</h>
+                </div>
+                <br>
+               
+                <img src="static/images/vrow.png" alt="Frame" class="framer" >
                     <!-- Static content for the Match Overlay -->
                     <div class="participant">
                         <img src="teamA_image.jpg" alt="Team A">
@@ -89,19 +95,24 @@
                     
                     </div>
                 
-                    <img src="static/images/VS.png"  class="background-removed">
-                    <div class="participant-right">
-                        <img src="teamB_image.jpg" alt="Team B">
-                        <label>Team:</label>
-                        <span>Team B</span>
-                        
-                        <br>
-                        
-                    </div>
+                    
             </div>
             <!-- Close button -->
         </div>
         <button id="closeMatchButton">Close Match</button>
+    </div>
+    <div class="dropdown">
+        <div class="dropdown-content">
+            <div class="dropdown-content">
+                <a class="dropdown-item" data-value='["round-1", "round-2", "round-3","round-4", "round-5", "round-4-right", "round-3-right", "round-2-right", "round-1-right"]'>32</a>
+                <a class="dropdown-item" data-value='["round-2", "round-3","round-4", "round-5", "round-4-right", "round-3-right", "round-2-right"]'>16</a>
+                <a class="dropdown-item" data-value='["round-3","round-4", "round-5", "round-4-right", "round-3-right"]'>8</a>
+                <a class="dropdown-item" data-value='["round-4", "round-5", "round-4-right"]'>4</a>
+            </div>
+            <!-- Dropdown content goes here -->
+        </div>
+    <a href="/subscribe" class="subscribebutton">Subscribe Participants</a>
+
     </div>
     
     
@@ -117,6 +128,8 @@
         // Hide the overlay when the button is clicked
         overlay.style.display = "none";
     });
+
+   
 </script>
 </body>
 

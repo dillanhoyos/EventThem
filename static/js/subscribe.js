@@ -91,6 +91,32 @@ async function getAllUsers() {
         alert('An error occurred while fetching participants.');
     }
 }
+function deleteParticipants() {
+    // Make a POST request to the endpoint
+    fetch('/delete_all_users', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to delete participants');
+        }
+        getAllUsers()
+        return response.json();
+    })
+    .then(data => {
+        // Handle success
+        console.log(data.message);
+        alert('All participants deleted successfully');
+    })
+    .catch(error => {
+        // Handle error
+        console.error('Error deleting participants:', error.message);
+        alert('Failed to delete participants. Please try again later.');
+    });
+}
 
 // Call the function to fetch and display participants when the page loads
 window.onload = getAllUsers;

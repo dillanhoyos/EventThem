@@ -59,6 +59,35 @@ def subscribe_user():
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)})
     
+@app.route('/delete_all_users', methods=['POST'])
+def delete_participants():
+    try:
+        # Delete all users except "AddTeam"
+        users_ref = db.reference('users')
+        users = users_ref.get()
+        if users:
+            for user_key, user_data in users.items():
+                if user_data.get('name') != "AddTeam":
+                    users_ref.child(user_key).delete()
+
+        # Get reference to the matches collection
+        matches_ref = db.reference('matches')
+
+        # Reset all matches to have scores [0, 0] and teams ["AddTeam", "AddTeam"]
+        matches_snapshot = matches_ref.get()
+        if matches_snapshot:
+            for round_key, round_data in matches_snapshot.items():
+                for match_key, match_data in round_data.items():
+                    matches_ref.child(round_key).child(match_key).update({
+                        'scores': [0, 0],
+                        'teams': ["AddTeam", "AddTeam"]
+                    })
+
+        return jsonify({'success': True, 'message': 'Database reset successfully'})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)})
+
+
 
 
 @app.route('/get_Match_user', methods=['GET'])
@@ -180,6 +209,37 @@ def get_matches():
        
 
     return jsonify(participant_info)
+
+@app.route('/current_setup', methods=["GET"])
+def get_currentSetup():
+    # Assuming 'setups' is the key where the current setup data is stored in Firebase
+    setup_ref = db.reference('setups')
+    current_setup = setup_ref.get()  # Retrieve the current setup data from Firebase
+    print(current_setup)
+    # Check if current_setup is not None
+    if current_setup is not None:
+        return jsonify(current_setup), 200
+    else:
+        return jsonify({'error': 'Current setup data not found'}), 404
+    
+
+@app.route('/set_current_setup', methods=["POST"])
+def set_current_setup():
+    try:
+        # Get data from the request
+        data = request.get_json()
+
+        # Extract data from the request
+        current_setup = data.get('current_setup')
+
+        setup_ref = db.reference('setups')
+        setup_ref.update({
+            'current_setup': current_setup
+        })
+        return jsonify({'success': True, 'message': 'Match data updated successfully'})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
