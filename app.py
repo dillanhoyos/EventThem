@@ -4,7 +4,7 @@ import requests
 from firebase_admin import credentials, db, storage
 import os
 
-cred = credentials.Certificate("secret _key/eventthem-cdb38-firebase-adminsdk-a11er-623cb9668a.json")  # Replace with the path to your JSON credentials file
+cred = credentials.Certificate("secret_key/eventthem-cdb38-firebase-adminsdk-a11er-623cb9668a.json")  # Replace with the path to your JSON credentials file
 database_url = os.getenv("FIREBASE_DATABASE_URL")
 storage_bucket = os.getenv("FIREBASE_STORAGE_BUCKET")
 
