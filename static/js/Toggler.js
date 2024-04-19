@@ -10,7 +10,7 @@ function toggleBackgroundImage() {
 
     if (backgroundImageURL.includes('static/images/stadium-4760441.jpg')) { 
         document.body.style.setProperty('--background-image',"url('/static/images/TD.jpg')"); // Change the background image of body::before
-        document.body.style.setProperty('--background-opacity', '1');
+        document.body.style.setProperty('--background-opacity', '0.75');
         title_background.style.backgroundColor = "rgba(0,122,75, 0.845)";
         button.style.backgroundColor = "rgba(0,122,75, 0.545)";
         title.style.webkitTextStroke = "2px #ffff";// Change the title text
