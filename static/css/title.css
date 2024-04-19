@@ -1,6 +1,6 @@
 .title {
     text-align: center;
-    background-color: #5cade38b; /* Background color for the title */
+    background-color: rgba(94, 174, 228, 0.545); /* Background color for the title */
     padding: 15px; /* Add padding for better visibility of the background */
     border-radius: 8px; /* Add some border-radius for rounded corners */
 }

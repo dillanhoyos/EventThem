@@ -11,43 +11,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/title.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <script src="{{url_for('static', filename='js/mathmaker.js')}}"></script>
+    <script src="{{url_for('static', filename='js/Toggler.js')}}"></script>
 
 </head>
-<style>
-    body {
-        position: relative;
-        margin: 0;
-        padding: 0;
-    }
 
-    body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: url('{{ url_for('static', filename='images/stadium-4760441.jpg') }}') center center / cover no-repeat;
-        opacity: 0.5; /* Adjust the opacity value here */
-        z-index: -1;
-    }
-
-    .image-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh; /* Adjust as needed */
-      width: 50vw;
-    }
-
-    .background-removed {
-      background: none;
-      width: 50%;
-    }
-    
-
-   
-</style>
 <body>
     <div class = "ads">
         
@@ -65,7 +32,7 @@
     </div>
     <div class="overlay">
        
-        <div class="title">
+        <div class="title" id="titleText">
             <h1> FIFA Royalty by EVENTTHEM </h>
         </div>
         
@@ -112,6 +79,8 @@
             <!-- Dropdown content goes here -->
         </div>
     <a href="/subscribe" class="subscribebutton">Subscribe Participants</a>
+    <button id="toggleButton" onclick="toggleBackgroundImage()"></button>
+
 
     </div>
     
@@ -128,6 +97,9 @@
         // Hide the overlay when the button is clicked
         overlay.style.display = "none";
     });
+
+
+    
 
    
 </script>
