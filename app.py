@@ -241,6 +241,36 @@ def set_current_setup():
         return jsonify({'success': True, 'message': 'Match data updated successfully'})
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)})
+    
+@app.route('/update_CurrentTournament', methods=["POST"])
+def set_current_background():
+    try:
+        # Get data from the request
+        data = request.get_json()
+
+        # Extract data from the request
+        isToggled = data.get('isToggled')
+
+        setup_ref = db.reference('background')
+        setup_ref.update({
+            'isToggled': isToggled
+        })
+        return jsonify({'success': True, 'message': 'Match data updated successfully'})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)})
+    
+
+@app.route('/get_CurrentTournament', methods=["GET"])
+def get_current_background():
+    # Assuming 'setups' is the key where the current setup data is stored in Firebase
+    setup_ref = db.reference('background')
+    current_setup = setup_ref.get()  # Retrieve the current setup data from Firebase
+    print(current_setup)
+    # Check if current_setup is not None
+    if current_setup is not None:
+        return jsonify(current_setup), 200
+    else:
+        return jsonify({'error': 'Current setup data not found'}), 404
 
 
 if __name__ == '__main__':

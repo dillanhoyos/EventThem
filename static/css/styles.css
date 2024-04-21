@@ -79,7 +79,7 @@ body::before {
     background-color: #0000008b;
     border: 1px solid #ccc;
     margin: 5px;
-    width: 140px;
+    width: 160px;
     height: 12px; /* Adjusted height to 12px */
     text-emphasis-color: white;
     font-size: 14px; /* Increased font size */
